@@ -1,0 +1,20 @@
+# Нагрузка: 20 запросов/с в течение 90 с; dep-a сломана с 30-й по 60-ю секунду.
+# __FAULT__ подставляет experiment.sh из переменной FAULT.
+apiVersion: batch/v1
+kind: Job
+metadata: {name: load}
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: load
+        image: python:3.12-slim
+        command: ["python", "-u", "/code/loadgen.py"]
+        env:
+        - {name: CORE_URL, value: "http://core:8080"}
+        - {name: DEP_URL, value: "http://dep-a:8081"}
+        - {name: FAULT, value: '__FAULT__'}
+        volumeMounts: [{name: code, mountPath: /code}]
+      volumes: [{name: code, configMap: {name: code}}]
