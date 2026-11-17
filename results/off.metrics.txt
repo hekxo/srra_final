@@ -1,0 +1,3 @@
+all: n=1800 failed=600 POFOD=0.3333 episodes=1 ROCOF=40/h AVAIL=0.6667 p50/p95/p99=4/1503/1504 ms
+stop: n=360 failed=120 POFOD=0.3333 episodes=1 ROCOF=40/h AVAIL=0.6667 p50/p95/p99=5/1503/1504 ms
+telemetry: n=1440 failed=480 POFOD=0.3333 episodes=1 ROCOF=40/h AVAIL=0.6667 p50/p95/p99=4/1503/1504 ms
