@@ -25,4 +25,4 @@ export FAULT='{"delay_ms": 3000}'
 python metrics.py results/off.csv
 python metrics.py results/on.csv
 ```
-Расчёты заданий 4–6: `python calc.py`. Отчёт: `report/report.pdf`.
+Расчёты заданий 4–6: `python calc.py`. Отчёт: `report.pdf`.
